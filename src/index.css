@@ -1,0 +1,64 @@
+@import "tailwindcss";
+
+@theme {
+  /* 主題色：色票中的深藍系 */
+  --color-ink: #1B4D5C;        /* 最深藍：標題、重點文字 */
+  --color-brand: #28738A;      /* 主題深藍：品牌色、按鈕、連結 */
+  --color-brand-soft: #6F91B5; /* 中藍：次要、hover */
+  --color-brand-pale: #A4DDEE; /* 淺藍：背景 highlight */
+
+  /* 輔助色（來自色票）*/
+  --color-teal: #4AC5BB;
+  --color-mint: #89C0B7;
+  --color-sky: #B7E1E4;
+  --color-lime: #C7DB95;
+  --color-amber: #F2D684;
+  --color-orange: #FF8838;
+  --color-coral: #EF8F88;
+  --color-red: #E75A48;
+
+  /* 中性色 */
+  --color-paper: #FFFFFF;      /* 白底 */
+  --color-cream: #F8F6EF;      /* 卡片微暖白 */
+  --color-line: #E4E9EC;       /* 分隔線 */
+  --color-muted: #5F6B6D;      /* 次要文字 */
+
+  --font-sans: "Inter", "Noto Sans TC", system-ui, -apple-system, sans-serif;
+}
+
+html,
+body,
+#root {
+  height: 100%;
+}
+
+body {
+  margin: 0;
+  background-color: var(--color-paper);
+  color: var(--color-ink);
+  font-family: var(--font-sans);
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+/* 讓 range slider 有一致的深藍樣式 */
+input[type="range"] {
+  accent-color: var(--color-brand);
+}
+
+/* 挑戰達成時的慶祝動畫 */
+@keyframes pop-in {
+  0% { transform: scale(0.9); opacity: 0; }
+  60% { transform: scale(1.03); }
+  100% { transform: scale(1); opacity: 1; }
+}
+.animate-pop-in {
+  animation: pop-in 0.4s ease-out;
+}
+@keyframes badge-bounce {
+  0%, 100% { transform: translateY(0) rotate(-6deg); }
+  50% { transform: translateY(-4px) rotate(6deg); }
+}
+.animate-badge-bounce {
+  animation: badge-bounce 0.6s ease-in-out;
+}
